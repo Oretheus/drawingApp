@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="lib/p5.min.js"></script>
+    <script src="lib/p5.dom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+
+    <script src="sketch.js"></script>
+
+    <!-- add extra scripts below -->
+    <script src="toolbox.js"></script>
+    <script src="colourWheel.js"></script>
+    <script src="helperFunctions.js"></script>
+    <script src="tabs.js"></script>
+    </script>
+
+    <script src="tools/freehandTool.js"></script>
+    <script src="tools/lineToTool.js"></script>
+    <script src="tools/sprayCanTool.js"></script>
+    <script src="tools/mirrorDrawTool.js"></script>
+    <script src="tools/eraserTool.js"></script>
+    <script src="tools/shapesTool.js"></script>
+    <script src="tools/bucketFillTool.js"></script>
+    <script src="tools/textTool.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+  	<div class="wrapper">
+      <div class="box header">
+        Drawing Application  
+        <button id="clearButton" class="btn">Clear Canvas</button>
+        <button id="saveImageButton" class="btn">Save Image (JPEG)</button>
+        <button class="btn" onclick="addTab()">Add Tab</button>
+        <div id="tabs-container">TABS →</div>  
+      </div>     
+      <div class="box" id="sidebar"></div>
+      <div id="content"></div>
+      <div class="box colourWheel"></div>
+      <div class="box options"></div>
+    </div>
+	</div>
+  </body>
+</html>

@@ -1,0 +1,153 @@
+html, body {
+  margin: 0px;
+  height: 100%;
+}
+
+#sidebar {
+	grid-area: sidebar;
+	overflow-y: scroll;
+}
+
+#content {
+	grid-area: content;
+}
+
+.header {
+	grid-area: header;
+	font-family: cursive, sans-serif;
+}
+
+.footer{
+  grid-area: footer;
+}
+
+.sideBarItem{
+	max-height: 35px;
+	max-width: 35px;
+	padding: 15px;
+}
+
+.sideBarItem:hover {
+    background: aqua;
+}
+
+
+.sideBarItem img{
+	max-height: 35px;
+	max-Width: 35px;
+}
+
+.colourWheel {
+  grid-area: colourW;
+  padding-top: 1px;
+  display: flex;
+  width: auto;
+  flex-direction: row; /* Change from grid to row */
+  align-items: center; /* Align items vertically in the center */
+}
+
+.colorInfoContainer {
+  display: flex;
+  flex-direction: row; /* Display text side by side */
+  align-items: center;
+  margin-left: 10px;
+}
+
+#opacitySlider {
+  margin-left: 10px;
+}
+
+.options{
+	grid-area: options;
+}
+
+.options button {
+    margin-left: 2rem;
+}
+
+	.wrapper {
+		display: grid;
+		height: 100%;
+		grid-template-columns: 70px 230px minmax(500px, 1fr);
+		grid-template-rows: 35px minmax(500px, 1fr) 160px;
+		grid-template-areas:
+               "header header header"
+				"sidebar content content"
+                "colourW colourW options";
+		background-color: #fff;
+		color: #444;
+	}
+.box {
+  background-color: #444;
+  color: skyblue;
+  font-size: 120%;
+}
+
+.header {
+  background-color: #444;
+}
+
+.btn {
+    background: rgba(144, 144, 144, 0.2);
+    color: aqua;
+    border-radius: 4rem;
+    margin-left: 1.2rem;
+}
+
+.btn:hover {
+    background: aqua;
+    color: black;
+}
+
+/* Tabs */
+
+
+#tabs-container {
+  /*grid-area: tabs;*/
+  display: flex;
+  margin-top: 5px;
+  margin-left: 4.25rem;
+  position: absolute;
+  font-size: 24px;
+  height: 30px;
+  color: black;
+  font-weight: bold;
+}
+
+.tab {
+  padding-right: 3px;
+  padding-bottom: 20px;
+  margin-top: -2px;
+  text-align: center;
+  width: 60px;
+  height: 16px;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.tab:hover {
+  background-color: rgba(166, 166, 166, 0.6);
+}
+
+.close-tab {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.close-tab:hover {
+  color: red;
+}
+  
+.add-tab {
+  padding-right: 3px;
+  padding-bottom: 20px;
+  text-align: center;
+  width: 40px;
+  height: 16px;
+  cursor: pointer;
+  color: green;
+}
+
+.add-tab:hover {
+  background-color: #ddd;
+}
