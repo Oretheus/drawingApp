@@ -5,6 +5,7 @@ html, body {
 
 #sidebar {
 	grid-area: sidebar;
+  width: 500px;
 	overflow-y: scroll;
 }
 

@@ -2,7 +2,7 @@
     var currentCanvasIndex = 0; // Index of the currently active canvas
 
 function getCurrentCanvas() {
-    return canvases[currentCanvasIndex];;
+    return canvases[currentCanvasIndex];
 }
 
 

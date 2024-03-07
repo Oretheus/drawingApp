@@ -20,10 +20,7 @@ function HelperFunctions() {
     
     this.mousePressOnCanvas = function() {
         var canvas = getCurrentCanvas();
-        if (mouseX > canvas.elt.offsetLeft &&
-            mouseX < (canvas.elt.offsetLeft + canvas.width - 20) &&
-            mouseY > canvas.elt.offsetTop &&
-            mouseY < (canvas.elt.offsetTop + canvas.height - 20)) {
+        if (mouseX > 0 && mouseX < canvas.width && mouseY > 0 && mouseY < canvas.height) {
             return true;
         }
         return false;

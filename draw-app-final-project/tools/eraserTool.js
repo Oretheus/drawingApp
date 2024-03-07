@@ -1,16 +1,16 @@
-function EraserTool() {
+function EraserTool(backgroundColor) {
     this.icon = "assets/eraser.png";
 	this.name = "eraser";
     
     var sliderValue = 5;
 
 	this.draw = function(){
-		//if the mouse is pressed
+		// Eraser's color is dependent on the background fill color
         stroke(255);
         strokeWeight(0);
         fill(255);
 		if(mouseIsPressed){
-            fill(255,255,255);
+            fill(backgroundColor.r,backgroundColor.g,backgroundColor.b);
             ellipse(mouseX, mouseY, sliderValue);
         }
     }

@@ -41,6 +41,7 @@ function ShapesTool() {
                 }
             }
         } else if (mouseIsPressed && h.mousePressOnCanvas()) {
+
             if (!startingPoint) {
                 startingPoint = createVector(mouseX, mouseY);
             }
@@ -74,7 +75,14 @@ function ShapesTool() {
                 var outerRadius = dist(startingPoint.x, startingPoint.y, mouseX, mouseY);
                 var innerRadius = outerRadius / 2.5;
                 drawStar(startingPoint.x, startingPoint.y, 5, outerRadius, innerRadius);
+            } else if (selected == "pentagon") {
+                var radius = dist(startingPoint.x, startingPoint.y, mouseX, mouseY);
+                drawPolygon(startingPoint.x + 50, startingPoint.y, 5, radius);
+            } else if (selected == "octagon") {
+                var radius = dist(startingPoint.x, startingPoint.y, mouseX, mouseY);
+                drawPolygon(startingPoint.x, startingPoint.y, 8, radius);
             }
+
         } else {
             startingPoint = null;
         }
@@ -106,6 +114,17 @@ function ShapesTool() {
         }
         endShape(CLOSE);
     }
+
+    function drawPolygon(x, y, sides, radius) {
+        var angle = TWO_PI / sides;
+        beginShape();
+        for (var i = 0; i < sides; i++) {
+          var sx = x + cos(angle * i) * radius;
+          var sy = y + sin(angle * i) * radius;
+          vertex(sx, sy);
+        }
+        endShape(CLOSE);
+      }
 
     // when the tool is deselected update the pixels to just show the drawing and
     this.unselectTool = function() {
@@ -157,6 +176,16 @@ function ShapesTool() {
             starButton.parent(parentElement);
             starButton.child(createImg('assets/shapes/star.png', 'Star').size(32, 32));
 
+            var pentagonButton = createButton('');
+            pentagonButton.id('pentagon');
+            pentagonButton.parent(parentElement);
+            pentagonButton.child(createImg('assets/shapes/pentagon.png', 'Pentagon').size(32, 32));
+      
+            var octagonButton = createButton('');
+            octagonButton.id('octagon');
+            octagonButton.parent(parentElement);
+            octagonButton.child(createImg('assets/shapes/octagon.png', 'Octagon').size(32, 32));
+            
             customShapeButton.mouseClicked(function() {
                 if (customShapeButton.html() == "Start Shape") {
                     customShapeButton.html("Finish Shape");
@@ -213,6 +242,14 @@ function ShapesTool() {
 
             starButton.mouseClicked(function() {
                 selected = "star";
+            });
+
+            pentagonButton.mouseClicked(function() {
+                selected = "pentagon";
+            });
+        
+            octagonButton.mouseClicked(function() {
+                selected = "octagon";
             });
         } else {
             console.error("Parent element not found");

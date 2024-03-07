@@ -1,12 +1,8 @@
 // Displays and handles the colour wheel.
-function ColourWheel() {
+function ColourWheel(sharedColor) {
     this.selectedColour = "black";
 
     var self = this;
-    this.r = "";
-    this.g = "";
-    this.b = "";
-    
 
     // Create container for color wheel and information
     var container = createDiv();
@@ -29,23 +25,23 @@ function ColourWheel() {
     // Update layout styles - Tried to make it how I wanted to
     container.style("display", "flex");
     container.style("flex-direction", "column");
-    container.style("align-items", "flex-start"); 
-    colorInfoR.style("margin-top", "10px")
+    container.style("align-items", "flex-start");
+    colorInfoR.style("margin-top", "10px");
     colorInfoR.style("margin-left", "2px");
     colorInfoR.style("margin-bottom", "50px");
     colorInfoR.style("font-size", "16px");
 
     colorWheel.on("color:change", function (color) {
         self.selectedColour = color.hexString;
-        fill(self.selectedColour);
-        stroke(self.selectedColour);
 
         // Update RGB values and color information
-        var rgbValues = color.rgb;
-        r = rgbValues.r;
-        g = rgbValues.g;
-        b = rgbValues.b;
-        colorInfoR.html("RGB: " + r + ", " + g + ", " + b);
-    });
+        this.rgbValues = color.rgb;
+        sharedColor.r = this.rgbValues.r;
+        sharedColor.g = this.rgbValues.g;
+        sharedColor.b = this.rgbValues.b;
 
+        colorInfoR.style("color", self.selectedColour);
+        colorInfoR.html("RGB: " + sharedColor.r + ", " + sharedColor.g + ", " + sharedColor.b + "    " + "HEX: " + self.selectedColour);
+
+    });
 }
